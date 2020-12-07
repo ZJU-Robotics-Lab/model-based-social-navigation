@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-Code for **Learning World Transition Model for Socially Aware Robot Navigation** in ICRA2021.
+Code for **Learning World Transition Model for Socially Aware Robot Navigation** submitted in ICRA2021.
 
 
 Model free version uploaded, mdoel based version coming soon.
