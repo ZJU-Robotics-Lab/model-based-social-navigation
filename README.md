@@ -1,10 +1,12 @@
 # model-based-social-navigation
-Code for **Learning World Transition Model for Socially Aware Robot Navigation** in ICRA2021 is coming soon.
 
 [![arXiv](https://img.shields.io/badge/arxiv-2011.03922-B31B1B.svg)](https://arxiv.org/abs/2011.03922)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![video](https://img.shields.io/badge/video-icra2021-blue.svg)](https://www.youtube.com/watch?v=K7cBViQ9Vds&t=11s)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+Code for **Learning World Transition Model for Socially Aware Robot Navigation** in ICRA2021.
+Model free version uploaded, mdoel based version coming soon.
 
 
 Paper is available [here](https://arxiv.org/abs/2011.03922).
