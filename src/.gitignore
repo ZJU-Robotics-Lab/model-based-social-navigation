@@ -25,6 +25,7 @@ dataset/
 image_ego/
 image_not_ego/
 ensemble_models/
+backup/
 
 lidar_pics/
 state_label/
