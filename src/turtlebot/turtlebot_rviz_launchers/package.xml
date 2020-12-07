@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>turtlebot_rviz_launchers</name>
+  <version>2.3.1</version>
+  <description>Launchers for visualizing TurtleBot</description>
+  <maintainer email="stonier@yujinrobot.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/turtlebot_rviz_launchers</url>
+  <url type="repository">https://github.com/turtlebot/turtlebot_interactions</url>
+  <url type="bugtracker">https://github.com/turtlebot/turtlebot_interactions/issues</url>
+  <author>Daniel Stonier</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>turtlebot_bringup</run_depend>
+  <run_depend>turtlebot_teleop</run_depend>
+</package>

@@ -1,0 +1,19 @@
+<launch>
+    
+    <include file="$(find multiple_kobukis)/launch/world_start.launch" >
+    </include>
+    
+    
+    <group ns="robot1">
+      <param name="tf_prefix" value="robot1_tf" />
+      <include file="$(find multiple_kobukis)/launch/spawn_turtlebot_1.launch" >
+      </include>
+    </group>
+    
+    <group ns="robot2">
+      <param name="tf_prefix" value="robot2_tf" />
+      <include file="$(find multiple_kobukis)/launch/spawn_turtlebot_2.launch" >
+      </include>
+    </group>
+    
+</launch>

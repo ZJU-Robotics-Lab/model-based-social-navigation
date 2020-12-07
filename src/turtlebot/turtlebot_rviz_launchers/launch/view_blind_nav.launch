@@ -1,0 +1,6 @@
+<!--
+  Used for visualising the turtlebot navigating locally only with bumpers and cliff sensors. 
+ -->
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_rviz_launchers)/rviz/blind_nav.rviz"/>
+</launch>

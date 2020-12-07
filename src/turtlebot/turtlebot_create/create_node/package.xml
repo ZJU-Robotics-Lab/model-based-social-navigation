@@ -1,0 +1,46 @@
+<package>
+  <name>create_node</name>
+  <version>2.3.1</version>
+  <description>
+    iRobot Create ROS driver node
+    
+    ROS bindings for the Create/Roomba driver.
+    
+    This is based on otl_roomba driver by OTL, ported to use
+    create_driver's implementation instead. 
+    This also contains a 'bonus' feature from the turtlebot 
+    driver by Xuwen Cao and Morgan Quigley.
+  </description>
+  <maintainer email="turtlebot@osrfoundation.org">OSRF</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/create_node</url>
+  <url type="repository">https://github.com/turtlebot/turtlebot_create</url>
+  <url type="bugtracker">https://github.com/turtlebot/turtlebot_create/issues</url>
+  <author email="kwc@kwc.org">Ken Conley</author>
+  <author email="mwise@willowgarage.com">Melonee Wise</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>create_driver</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+
+  <run_depend>create_driver</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>python_orocos_kdl</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+  
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>

@@ -1,0 +1,10 @@
+<launch>
+
+
+  <include file="$(find turtlebot_gazebo)/launch/world_start.launch" >
+  </include>
+
+  
+  <include file="$(find multiple_kobukis)/launch/robots.launch"/>
+  
+</launch>

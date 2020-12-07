@@ -21,7 +21,6 @@ build/
 devel/
 Models/
 log/
-turtlebot/
 dataset/
 image_ego/
 image_not_ego/

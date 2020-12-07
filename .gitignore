@@ -22,7 +22,6 @@ devel/
 model_based_policy_gradient/Models/
 multi_agent_rl/Models/
 log/
-turtlebot/
 dataset/
 data_pre/
 

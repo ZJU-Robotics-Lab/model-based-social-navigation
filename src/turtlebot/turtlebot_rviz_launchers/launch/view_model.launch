@@ -1,0 +1,50 @@
+<!--
+  Standalone launcher used for visualising urdf models.
+  
+  == Testing Model Views ==
+
+  Test the robot descriptions via the turtlebot_viz/turtlebot_rviz_launchers
+  and reconfiguring your environment variables.
+
+  == Turtlebot 2 ==
+
+  This is the default, so you don't need to set the variables, but for 
+  purposes of illustration, it is shown below.
+
+  > export TURTLEBOT_BASE=kobuki
+  > export TURTLEBOT_STACKS=hexagons
+  > export TURTLEBOT_3D_SENSOR=kinect
+  > roslaunch turtlebot_rviz_launchers view_model.launch
+
+  == Turtlebot 1 ==
+
+  > export TURTLEBOT_BASE=create
+  > export TURTLEBOT_STACKS=circles
+  > export TURTLEBOT_3D_SENSOR=kinect
+  > roslaunch turtlebot_rviz_launchers view_model.launch
+
+  == Switch 3d Sensor ==
+
+  Switch the 3d sensor from the kinect to the asus xtion pro:
+
+  > export TURTLEBOT_3D_SENSOR=asus_xtion_pro
+  > roslaunch turtlebot_rviz_launchers view_model.launch
+ -->
+
+<launch>
+  <arg name="base"       value="$(optenv TURTLEBOT_BASE kobuki)"/>  <!-- create, rhoomba -->
+  <arg name="stacks"     value="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
+  <arg name="3d_sensor"  value="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
+  
+  <include file="$(find turtlebot_bringup)/launch/includes/robot.launch.xml">
+    <arg name="base" value="$(arg base)" />
+    <arg name="stacks" value="$(arg stacks)" />
+    <arg name="3d_sensor" value="$(arg 3d_sensor)" />
+  </include>
+  
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="true"/>
+  </node>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_rviz_launchers)/rviz/model.rviz" />
+</launch>
