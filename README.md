@@ -1,5 +1,5 @@
 # model-based-social-navigation
-Code for **Learning World Transition Model for Socially Aware Robot Navigation** in ICRA2021 is comming soon.
+Code for **Learning World Transition Model for Socially Aware Robot Navigation** in ICRA2021 is coming soon.
 
 
 
