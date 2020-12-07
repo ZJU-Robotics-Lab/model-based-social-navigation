@@ -6,6 +6,8 @@
 
 
 Code for **Learning World Transition Model for Socially Aware Robot Navigation** in ICRA2021.
+
+
 Model free version uploaded, mdoel based version coming soon.
 
 
