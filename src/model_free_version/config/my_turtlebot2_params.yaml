@@ -1,0 +1,6 @@
+turtlebot2: #namespace
+    task_and_robot_environment_name: 'MyTurtleBot2Square-v0'
+    ros_ws_abspath: "/home/cyx/gym_ros_rl"
+
+    
+
