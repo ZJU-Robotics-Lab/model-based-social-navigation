@@ -37,17 +37,23 @@ roslaunch model-based-social-navigation start.launch
 ```
 
 - *main_mbpo.py* 1/4 agent main function
-- ///
+
+
+
 - *env_sample.py*
 - *environment_one_agent.py* real 1 agent environment 
 - *env_sample_four.py* 
 - *environment_four_agent.py* real 4 agent environment
-- ///
+
+
+
 - *agent.py* agent's states, reward, action...
 - *replay_buffer_env.py* real data replay buffer
 - *replay_buffer_model.py* virtual data replay buffer
 - *policy.py* policy network
-- ///
+
+
+
 - *transition_model.py* world transition model
 - *ensemble_model_train_mcnet_all.py* 
 - *env_predict.py* virtual environment
