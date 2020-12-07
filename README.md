@@ -1,7 +1,7 @@
 # model-based-social-navigation
 
 [![arXiv](https://img.shields.io/badge/arxiv-2011.03922-B31B1B.svg)](https://arxiv.org/abs/2011.03922)
-[![video](https://img.shields.io/badge/video-icra2021-blue.svg)](https://www.youtube.com/watch?v=K7cBViQ9Vds&t=11s)
+[![video](https://img.shields.io/badge/video-ICRA2021-blue.svg)](https://www.youtube.com/watch?v=K7cBViQ9Vds&t=11s)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 

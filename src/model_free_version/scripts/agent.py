@@ -25,7 +25,7 @@ import numpy as np
 
 IMAGE_W = 160
 IMAGE_H = 80
-MAX_LASER_RANGE = 4.0
+MAX_LASER_RANGE = 3.0
 
 def Transformation(lidar_input, current_x, current_y, current_yaw, target_x, target_y, target_yaw):
 

@@ -15,7 +15,7 @@
   <node pkg="tf" type="static_transform_publisher" name="odom_4_map_broadcaster" args="0.0 0.0 0.0 0 0 0.0 /map /robot_4/odom 100" />
 
   <!-- Load world and map -->
-  <arg name="map_file" default="$(find model_free_version)/map.yaml"/>
+  <arg name="map_file" default="$(find model_free_version)/map/map.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
   <!-- <arg name="world_file"  default="$(find model_free_version)/worlds/8x8_sparse.world"/> -->
   <arg name="world_file"  default="$(find model_free_version)/worlds/8x8.world"/>
