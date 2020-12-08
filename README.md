@@ -64,3 +64,9 @@ roslaunch model-based-social-navigation start.launch
 - *transition_model.py* (world transition model)
 - *ensemble_model_train_mcnet_all.py* 
 - *env_predict.py* (virtual environment)
+
+
+# Acknowledgements
+Code references
+[MBPO](https://github.com/jxu43/replication-mbpo).
+[TD3](https://github.com/sfujim/TD3).

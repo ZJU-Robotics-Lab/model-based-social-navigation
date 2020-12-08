@@ -28,11 +28,9 @@ from environment_four import Env
 
 S_DIM = 3634
 A_DIM = 2
-action_linear_max = 1.0  # m/s  
-delta_action_linear_max = 0.1 # m^2/s
-action_angular_max = 1.5  # rad/s
+
 max_action = 1.0
-is_training = True
+is_training = False
 
 MAX_STEPS_TRAINING = 400
 start_timesteps = 3000
@@ -40,13 +38,10 @@ noise_decay_episode = 30
 batch_size = 32
 init_net_action_noise = 0.2
 
-model_name = 'ours'
-if is_training == False:
-    model_name = model_name + '/test'
 
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('model_free_version')
-weight_outdir = pkg_path + '/Models/' + model_name
+weight_outdir = pkg_path + '/Models/'
 writer = SummaryWriter(pkg_path + "/log/")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -68,10 +63,6 @@ def main():
     policy.load(pkg_path + '/Models/TEST/test')
 
     replay_buffer = utils.ReplayBuffer(S_DIM, A_DIM)
-
-    print('State Dimensions: ' + str(S_DIM))
-    print('Action Dimensions: ' + str(A_DIM))
-    print('Action Max: ' + str(action_linear_max) + ' m/s and ' + str(action_angular_max) + ' rad/s')
 
     total_step = 0
     save_time = 0

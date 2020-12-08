@@ -45,7 +45,7 @@ class Env():
             threshold_collision = 0.24
         else:
             threshold_goal = 0.55
-            threshold_collision = 0.24 # 单个agent碰撞0.25，agent之间碰撞0.5，单个agent实际尺寸半径0.2，雷达最小范围0.21
+            threshold_collision = 0.24 # 单个agent碰撞0.24，agent之间碰撞0.5，单个agent实际尺寸半径0.2，雷达最小范围0.21
 
         # Agent 智能体
         self.agent_1 = agent.Agent(num=1, threshold_goal=threshold_goal, threshold_collision=threshold_collision)
@@ -118,9 +118,6 @@ class Env():
         
         time.sleep(0.1)
 
-        # TODO: 试试在pause的时候set动态障碍物
-
-
         t1 = time.time()
         state_all_1, done_1, arrive_1 = self.get_agent_state(1)
         state_all_2, done_2, arrive_2 = self.get_agent_state(2)
@@ -137,7 +134,6 @@ class Env():
         return state_all_1, reward_1, done_1, arrive_1, state_all_2, reward_2, done_2, arrive_2, state_all_3, reward_3, done_3, arrive_3, state_all_4, reward_4, done_4, arrive_4, flag_ego_safety_1, flag_social_safety_1, flag_ego_safety_2, flag_social_safety_2, flag_ego_safety_3, flag_social_safety_3, flag_ego_safety_4, flag_social_safety_4
 
 
-    # env step 一旦发生碰撞就全部reset这样可以保证不会因为随机重置了其中一个而与另一个发生碰撞
     def reset(self):
         print("=============================>  Env Reset <=============================")
         # Reset the env
