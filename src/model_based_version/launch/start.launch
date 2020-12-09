@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <!-- Launch the training system -->
+  <node pkg="model_based_version" name="model_based_version" type="main_four.py" output="screen"/>
+
+  <!-- Load training params -->
+  <rosparam command="load" file="$(find model_based_version)/config/my_turtlebot2_params.yaml" />
+
+  <!-- tf -->
+  <node pkg="tf" type="static_transform_publisher" name="odom_1_map_broadcaster" args="0.0 0.0 0.0 0 0 0.0 /map /robot_1/odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_2_map_broadcaster" args="0.0 0.0 0.0 0 0 0.0 /map /robot_2/odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_3_map_broadcaster" args="0.0 0.0 0.0 0 0 0.0 /map /robot_3/odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_4_map_broadcaster" args="0.0 0.0 0.0 0 0 0.0 /map /robot_4/odom 100" />
+
+  <!-- Load world and map -->
+  <arg name="map_file" default="$(find model_based_version)/map/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <arg name="world_file"  default="$(find model_based_version)/worlds/square_obstacle_more.world"/>
+
+  <!-- Load params -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="verbose" value="false" />
+  </include>
+  
+
+
+  <!-- Load turtlebot -->
+  <group ns="robot_1">
+    <param name="tf_prefix" value="robot_1" />
+
+    <arg name="base" value="kobuki"/>
+    <arg name="stacks" value="hexagons"/>
+    <arg name="3d_sensor" value="kinect"/>
+    <arg name="init_pose" value="-x -1 -y 1 -z 0" />
+    
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+    
+    <!-- Gazebo model spawner -->
+    <node name="spawn_turtlebot_model_1" pkg="gazebo_ros" type="spawn_model"
+          args="$(arg init_pose) -unpause -urdf -param robot_description -model mobile_base_1"/>
+    
+    <!-- Velocity muxer -->
+    <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager_1" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="cmd_vel_mux_1"
+          args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager_1">
+      <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml" />
+      <remap from="cmd_vel_mux_1/output" to="mobile_base/commands/velocity"/>
+    </node>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_1">
+      <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+  </group>
+
+  <!-- Load turtlebot -->
+  <group ns="robot_2">
+    <param name="tf_prefix" value="robot_2" />
+
+    <arg name="base" value="kobuki"/>
+    <arg name="stacks" value="hexagons"/>
+    <arg name="3d_sensor" value="kinect"/>
+    <arg name="init_pose" value="-x 1 -y -1 -z 0" />
+    
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+    
+    <!-- Gazebo model spawner -->
+    <node name="spawn_turtlebot_model_2" pkg="gazebo_ros" type="spawn_model"
+          args="$(arg init_pose) -unpause -urdf -param robot_description -model mobile_base_2"/>
+    
+    <!-- Velocity muxer -->
+    <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager_2" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="cmd_vel_mux_2"
+          args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager_2">
+      <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml" />
+      <remap from="cmd_vel_mux_2/output" to="mobile_base/commands/velocity"/>
+    </node>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_2">
+      <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+  </group>
+
+    <!-- Load turtlebot -->
+  <group ns="robot_3">
+    <param name="tf_prefix" value="robot_3" />
+
+    <arg name="base" value="kobuki"/>
+    <arg name="stacks" value="hexagons"/>
+    <arg name="3d_sensor" value="kinect"/>
+    <arg name="init_pose" value="-x -1 -y -1 -z 0" />
+    
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+    
+    <!-- Gazebo model spawner -->
+    <node name="spawn_turtlebot_model_3" pkg="gazebo_ros" type="spawn_model"
+          args="$(arg init_pose) -unpause -urdf -param robot_description -model mobile_base_3"/>
+    
+    <!-- Velocity muxer -->
+    <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager_3" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="cmd_vel_mux_3"
+          args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager_3">
+      <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml" />
+      <remap from="cmd_vel_mux_3/output" to="mobile_base/commands/velocity"/>
+    </node>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_3">
+      <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+  </group>
+
+    <!-- Load turtlebot -->
+  <group ns="robot_4">
+    <param name="tf_prefix" value="robot_4" />
+
+    <arg name="base" value="kobuki"/>
+    <arg name="stacks" value="hexagons"/>
+    <arg name="3d_sensor" value="kinect"/>
+    <arg name="init_pose" value="-x 1 -y 1 -z 0" />
+    
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+    
+    <!-- Gazebo model spawner -->
+    <node name="spawn_turtlebot_model_4" pkg="gazebo_ros" type="spawn_model"
+          args="$(arg init_pose) -unpause -urdf -param robot_description -model mobile_base_4"/>
+    
+    <!-- Velocity muxer -->
+    <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager_4" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="cmd_vel_mux_4"
+          args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager_4">
+      <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml" />
+      <remap from="cmd_vel_mux_4/output" to="mobile_base/commands/velocity"/>
+    </node>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_4">
+      <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+  </group>
+ 
+
+
+</launch>
