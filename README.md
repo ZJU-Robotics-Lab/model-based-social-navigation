@@ -70,3 +70,16 @@ roslaunch model-based-social-navigation start.launch
 Code references
 [MBPO](https://github.com/jxu43/replication-mbpo).
 [TD3](https://github.com/sfujim/TD3).
+
+### Citation
+If you use our source code, please consider citing the following:
+```bibtex
+@article{cui2020learning,
+  title={Learning World Transition Model for Socially Aware Robot Navigation},
+  author={Cui, Yuxiang and Zhang, Haodong and Wang, Yue and Xiong, Rong},
+  journal={arXiv preprint arXiv:2011.03922},
+  year={2020}
+}
+```
+
+
