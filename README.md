@@ -22,10 +22,12 @@ catkin_make -j6
 source devel/setup.bash
 ```
 
+
 # MODEL-FREE
 ```
 roslaunch model_free_version start.launch (FOUR-AGENT)
 ```
+for policy performance testing or model free training
 
 - *main.py* (4 agent main function)
 - *policy.py* (policy network)
