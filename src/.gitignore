@@ -19,7 +19,6 @@ _deps
 .vscode/
 build/
 devel/
-Models/
 log/
 dataset/
 image_ego/
