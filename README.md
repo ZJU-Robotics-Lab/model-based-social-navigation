@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-Code for **Learning World Transition Model for Socially Aware Robot Navigation** submitted in ICRA2021.
+Code for **Learning World Transition Model for Socially Aware Robot Navigation** accepted in ICRA2021.
 
 
 Paper is available [here](https://arxiv.org/abs/2011.03922).
@@ -39,7 +39,7 @@ for policy performance testing or model free training
 
 # MODEL-BASED
 ```
-roslaunch model-based-social-navigation start.launch
+roslaunch model_based_version start.launch
 ```
 
 - *main_mbpo.py* (1/4 agent main function)
