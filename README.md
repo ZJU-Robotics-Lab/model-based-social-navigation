@@ -14,6 +14,9 @@ Paper is available [here](https://arxiv.org/abs/2011.03922).
 Video is available [here](https://www.youtube.com/watch?v=K7cBViQ9Vds&t=11s).
 
 
+Presenting video is available [here](https://www.bilibili.com/video/BV1W64y1o7Ru) on Bilibili.
+
+
 
 # Get ready
 ```
